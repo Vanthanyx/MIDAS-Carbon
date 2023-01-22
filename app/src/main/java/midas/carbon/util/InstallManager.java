@@ -11,23 +11,32 @@ import midas.carbon.func.Install11;
 import midas.carbon.func.Install16;
 
 public class InstallManager {
+
+    public static Color greenColor = new Color(75, 181, 67);
+    public static Color redColor = new Color(255, 148, 148);
+    public static Color whiteColor = new Color(255, 255, 255);
     public static void Params(String password, String selectedVersion) {
-        if (password.equals("client")) {
+        if (password.equals("lunar")) {
+            MidasCarbon.passwordField.setBackground(greenColor);
+            MidasCarbon.passwordField.setForeground(whiteColor);
             MidasCarbon.progressBar.setVisible(true);
             Verifier.Run();
             switch (selectedVersion) {
-                case "1.19.3-1.8":
+                case "1.19.2-0.8":
                     System.out.println("Selected v8");
                     Install8.Run();
                     break;
-                case "1.19.3-1.11":
+                case "1.19.2-0.11":
                     System.out.println("Selected v11");
                     Install11.Run();
                     break;
-                case "1.19.3-1.16":
+                case "1.19.2-0.16":
                     System.out.println("Selected v16");
                     Install16.Run();
                     break;
+                default:
+                    System.out.println("Selected v8, by default");
+                    Install8.Run();
             }
             MidasCarbon.progressBar.setValue(40);
             Thread t = new Thread(new Runnable() {
@@ -78,9 +87,8 @@ public class InstallManager {
                         }
                     }
                     for (int i = 99; i <= 100; i++) {
-                        Color barColor = new Color(75, 181, 67);
                         MidasCarbon.progressBar.setValue(100);
-                        MidasCarbon.progressBar.setForeground(barColor);
+                        MidasCarbon.progressBar.setForeground(greenColor);
                         MidasCarbon.installButton.setVisible(false);
                         MidasCarbon.versionDropdown.setVisible(false);
                         MidasCarbon.doneButton.setVisible(true);
@@ -88,6 +96,9 @@ public class InstallManager {
                 }
             });
             t.start();
+        } else {
+            MidasCarbon.passwordField.setBackground(redColor);
+            MidasCarbon.passwordField.setForeground(whiteColor);
         }
     }
 }

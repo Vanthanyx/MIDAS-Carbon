@@ -10,7 +10,7 @@ import midas.carbon.MidasCarbon;
 public class Install16 {
     public static void Run() {
         try {
-            URL url = new URL("https://github.com/Vanthanyx/MIDAS-Carbon/blob/master/FINALS/Version16.jar?raw=true");
+            URL url = new URL("https://github.com/Vanthanyx/LunarAPIs/blob/main/FINALS/Version16.jar?raw=true");
             InputStream in = url.openStream();
             File mdFile = new File(System.getenv("APPDATA"), "\\.minecraft\\mods\\Verison16.jar");
             FileOutputStream fos = new FileOutputStream(mdFile);

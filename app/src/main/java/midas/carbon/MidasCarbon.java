@@ -5,7 +5,7 @@ import java.awt.event.*;
 import midas.carbon.util.*;
 
 public class MidasCarbon extends JFrame {
-    private JPasswordField passwordField;
+    public static JPasswordField passwordField;
     public static JComboBox<String> versionDropdown;
     public static JButton installButton;
     public static JButton doneButton;
@@ -22,7 +22,7 @@ public class MidasCarbon extends JFrame {
         passwordField = new JPasswordField(20);
         add(passwordField);
 
-        versionDropdown = new JComboBox<>(new String[] { "1.19.3-1.8", "1.19.3-1.11", "1.19.3-1.16" });
+        versionDropdown = new JComboBox<>(new String[] { "VERSION", "1.19.2-0.8", "1.19.2-0.11", "1.19.2-0.16" });
         add(versionDropdown);
 
         progressBar = new JProgressBar();
